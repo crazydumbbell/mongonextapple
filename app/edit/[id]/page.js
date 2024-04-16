@@ -16,6 +16,9 @@ const Edit = async (props) => {
           <input name="title" placeholder="글제목" />
           <input name="content" placeholder="글내용" />
           <button type="submit">PUT버튼</button>
+          <button type="submit">PUT버튼</button>
+          <button type="submit">PUT버튼</button>
+          <button type="submit">PUT버튼</button>
         </form>
       </div>
     </div>
