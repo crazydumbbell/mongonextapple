@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 const url =
-  "mongodb+srv://admin:guxzWIeXWDKlAFWf@cluster0.ra1gvdm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://admin:guxzWIeXWDKlAFWf@cluster0.ra1gvdm.mongodb.net/forum?retryWrites=true&w=majority&appName=Cluster0";
 let connectDB;
 
 if (process.env.NODE_ENV === "development") {
