@@ -5,6 +5,8 @@ import LoginBtn from "./LoginBtn";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import LogoutBtn from "./LogoutBtn";
+import DarkMode from "./darkmode";
+import { cookies } from "next/headers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +18,14 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   let session = await getServerSession(authOptions);
 
+  let res = cookies().get("mode");
+  console.log(res);
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={res != undefined && res.value == "dark" ? "dark-mode" : ""}
+      >
         <div className="navbar">
           <Link href="/" className="logo">
             Appleforum
@@ -30,6 +36,7 @@ export default async function RootLayout({ children }) {
           <Link href="/list">List</Link>
           {session ? <LogoutBtn /> : <LoginBtn />}
           <Link href="/register">회원가입</Link>
+          <DarkMode />
         </div>
         {children}
       </body>
